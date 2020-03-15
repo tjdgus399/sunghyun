@@ -202,7 +202,7 @@
 				<input type="hidden" name="farmName" value="<%=farmName%>"/>
 				<input type="hidden" name="farmNamekeyWord" value="<%=farmNamekeyWord%>"/>
 				<input type="hidden" name="fishNamekeyWord" value="<%=fishNamekeyWord%>"/>
-				<%-- <input type="hidden" name="selectedFarmId" value="<%=selectFarmId %>"/> --%>
+				<%-- <input type="hidden" name="selectedFarmId" value="<%=selectFarmId %>"/>--%>
 			</form>
 		</section>
 		<!-- --------------------------- END SECTION ---------------------------------->

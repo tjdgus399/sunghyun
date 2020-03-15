@@ -16,7 +16,7 @@
     pageEncoding="UTF-8"%>
 <!-- beans를 사용하기 위한 import -->
 <%@page import="com.repair.*"%>
-<%@ include file="../include/SessionState.inc" %>
+<%@ include file="../include/include/session.inc" %>
 
 <%
 	// 한글패치
@@ -39,7 +39,7 @@
 		repairDAO dao =  new repairDAO();
 		
 		//조치부분을 입력하는 메소드를 호출하여 매개변수를 입력
-		dao.repairInsert(Session_ID, repairContents, recSeq);
+		dao.repairInsert(ID, repairContents, recSeq);
 	}
 	else
 	{

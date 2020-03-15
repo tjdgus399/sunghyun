@@ -1,13 +1,13 @@
 <%--
-	■ SYSTEM                :  SAF 
-	■ SOURCE FILE NAME      :  userInfo.jsp
-	■ DESCRIPTION           :  사용자 정보 확인 form
-	■ COMPANY               :  목포대학교 융합소프트웨어학과 
-	■ PROGRAMMER            :  김성현
-	■ DESIGNER              : 
-	■ PROGRAM DATE          :  2019.08.19
-	■ EDIT HISTORY          :  2019.08.22
-	■ EDIT CONTENT          : 
+   ■ SYSTEM                :  SAF 
+   ■ SOURCE FILE NAME      :  userInfo.jsp
+   ■ DESCRIPTION           :  사용자 정보 확인 form
+   ■ COMPANY               :  목포대학교 융합소프트웨어학과 
+   ■ PROGRAMMER            :  김성현
+   ■ DESIGNER              : 
+   ■ PROGRAM DATE          :  2019.08.19
+   ■ EDIT HISTORY          :  2019.08.22
+   ■ EDIT CONTENT          : 
 --%>
 <%@ page import="java.util.stream.Stream"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -33,11 +33,13 @@
 
    String tel = dto.getUserTel();      // 전화번호
    String FarmID = dto.getFarmId();   // 양식장 id
+
+   
    
    request.getParameter(FarmID);
    
-	// 사용자 소속양식장 추가 배열
-	//ArrayList userlist = dao.
+   // 사용자 소속양식장 추가 배열
+   //ArrayList userlist = dao.
 %>
 
 <script src = "../common/main.js"></script>
@@ -50,7 +52,9 @@
    <!-- 2. 본문 -->
    <section>
    <h2>내 정보
-   <% if(!Auth.equals("사용자")){ %>
+   <% 
+   
+   if(!Auth.equals("사용자")){ %>
    <input type="button" name="godel" class="menu"  onclick="location.href='./userManagement.jsp'">
    <% } %>  
             </h2>
@@ -81,12 +85,12 @@
             <select name="getid" id="getid">
             
           
-				
-				<option value="">아이디</option>
-				
-				<option value="Y">사람을 골라요</option>
-			</select>
-			
+            
+            <option value="">아이디</option>
+            
+            <option value="Y">사람을 골라요</option>
+         </select>
+         
             <% if(!Auth.equals("사용자")){ %>
             <input type="button" class="search" onclick="location.href='./farmSearchForm.jsp'">
             <% } %>
@@ -96,12 +100,10 @@
          <% 
          usertableDAO fda = new usertableDAO();
          ArrayList<farmDTO> listfarm = fda.getFarmlist();
-         
+    
          if(Auth.equals("전체관리자")){
-            
+      
             for(int i=0; i<listfarm.size(); i++){
-            System.out.println(listfarm.get(i).getFarmId());
-            System.out.println(listfarm.get(i).getFarmName());
             %>
             
             <tr align="center">
@@ -118,6 +120,7 @@
          
          if(!Auth.equals("전체관리자")){
             //검색결과가 없을 때
+            System.out.println(Auth);
             if(FarmID.isEmpty()){
          %>
          
@@ -126,38 +129,47 @@
          </tr>
          
          <%
-         
              
             }else{   // 검색결과가 있을때
+         	
+            	System.out.println("asd");
+                
+             	//userDAO에서 받아온 userlist 출력
+                //리스트 목록 가져오기
+                 farmDAO list1 = new farmDAO();
+                
+                String ar[] = FarmID.split(",");
                
-            //userDAO에서 받아온 userlist 출력
-            //리스트 목록 가져오기
-             farmDAO list1 = new farmDAO();
-            
-            String ar[] = FarmID.split(",");
-            int arr[] = Stream.of(FarmID.split(",")).mapToInt(Integer::parseInt).toArray();
-            
-            //리스트 불러오기
-            ArrayList<farmDTO> list = list1.getFarm(arr);
-            
-            usertableDTO uo = new usertableDTO();
-            
-            for (int i = 0; i < list.size(); i++) { 
-               farmDTO fo = list.get(i);   
-               fo.setFarmId(fo.getFarmId());
-         %>
-         
-         <tr align="center">
-            <td>
-            <%= fo.getFarmName() %>(<%= fo.getAddress() %>)
-            <td>
-            <input type="button" class="del" onclick="delfarm('<%=fo.getFarmId()%>','<%=fo.getFarmName()%>')"></td>
-         </tr>
-         
-         <%
-            }//end for
+                int arr[] = new int[ar.length];
+               
+                for(int i=0; i<ar.length; i++) {
+                	arr[i] = Integer.parseInt(ar[i]);
+                	
+                }
+                
+                //리스트 불러오기
+                ArrayList<farmDTO> list = list1.getFarm(arr);
+                
+                usertableDTO uo = new usertableDTO();
+                
+                for (int i = 0; i < list.size(); i++) { 
+                   farmDTO fo = list.get(i);   
+                   fo.setFarmId(fo.getFarmId());
+             %>
+             
+             <tr align="center">
+                <td>
+                <%= fo.getFarmName() %>(<%= fo.getAddress() %>)
+                <td>
+                <input type="button" class="del" onclick="delfarm('<%=fo.getFarmId()%>','<%=fo.getFarmName()%>')"></td>
+             </tr>
+             
+             <%
+                }//end for
+                
+         	}//end if
          }//end if
-         }//end if
+         
          %>
          
          <tr>

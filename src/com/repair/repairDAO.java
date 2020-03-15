@@ -15,7 +15,7 @@ public class repairDAO {
 		    * @name retRepSeq
 		    * @author Gojian
 		    * @param farmID, tanKID
-		    * @return String "조치가 완료되었습니다" or ""
+		    * @return String "議곗튂媛� �셿猷뚮릺�뿀�뒿�땲�떎" or ""
 		    * @remark
 		    **************************************/
 		
@@ -54,7 +54,7 @@ public class repairDAO {
 			int Counter_2 = Integer.parseInt(Counter2);
 			
 			if (Counter_1 != Counter_2) {
-				return "조치가 완료되었습니다.";
+				return "議곗튂媛� �셿猷뚮릺�뿀�뒿�땲�떎.";
 				
 			} else {
 				return "";
@@ -74,17 +74,17 @@ public class repairDAO {
 	//--------------------------------------------------------------
 	
 	/**************************************
-	 * @name 	repairInsert()  (조치사항 입력)
-	 * @author	박진후 
-	 * @param	repairID(수정자 ID), repairContents(조치내용), recSeq(기록번호) 
+	 * @name 	repairInsert()  (議곗튂�궗�빆 �엯�젰)
+	 * @author	諛뺤쭊�썑 
+	 * @param	repairID(�닔�젙�옄 ID), repairContents(議곗튂�궡�슜), recSeq(湲곕줉踰덊샇) 
 	 * 
 	 * @return 	void
-	 * @remark 	select 문을 통해 조치할 부분의 기록을 받아와서 조치내용과 함께 새로 조치기록을 입력한다.
-	 * 			사용처 - waterTank/wtCautionPrc.jsp
+	 * @remark 	select 臾몄쓣 �넻�빐 議곗튂�븷 遺�遺꾩쓽 湲곕줉�쓣 諛쏆븘���꽌 議곗튂�궡�슜怨� �븿猿� �깉濡� 議곗튂湲곕줉�쓣 �엯�젰�븳�떎.
+	 * 			�궗�슜泥� - waterTank/wtCautionPrc.jsp
 	 **************************************/
 	
 	public void repairInsert(String repairID, String repairContents, String recSeq)	throws NullPointerException, SQLException {		
-		// DB연결 객체
+		// DB�뿰寃� 媛앹껜
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
@@ -96,7 +96,7 @@ public class repairDAO {
 
 		try {			
 			con = DBCon.getConnection();			
-			//reseq에 맞는 조치 기록을 받는다
+			//reseq�뿉 留욌뒗 議곗튂 湲곕줉�쓣 諛쏅뒗�떎
 			sql = "select recseq, tankid, farmid, fishid, state, yrcode, sensordate, regdate, regid from repair where recseq = ? ";
 			pstmt = con.prepareStatement(sql);
 			
@@ -104,13 +104,13 @@ public class repairDAO {
 			
 			rs = pstmt.executeQuery();
 			
-			//기존의 있던 내용을 토대로 조치내용과 수정자를 추가하여 repair기록을 추가
+			//湲곗〈�쓽 �엳�뜕 �궡�슜�쓣 �넗��濡� 議곗튂�궡�슜怨� �닔�젙�옄瑜� 異붽��븯�뿬 repair湲곕줉�쓣 異붽�
 			sql2 = " insert into repair(repairseq, recseq, tankid, farmid, fishid, state, yrcode, sensordate, regdate, regid, lastuptdate, lastuptid, repairid, repaircontents)"
 					+ "values(repairseq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?, ?, ?)";
 
 			pstmt2 = con.prepareStatement(sql2);
 			
-			//sql에서 받은 값들을 sql2에 입력
+			//sql�뿉�꽌 諛쏆� 媛믩뱾�쓣 sql2�뿉 �엯�젰
 			if (rs.next()) 
 			{
 				for (i = 1; i < 10; i++)
@@ -135,7 +135,7 @@ public class repairDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// 연결 끊기
+			// �뿰寃� �걡湲�
 			DBCon.close(con, pstmt, rs);
 			DBCon.close(con, pstmt2, rs);
 		}
@@ -146,12 +146,12 @@ public class repairDAO {
 	
 	/**************************************
 	 * @name repairRec()
-	 * @author 문인찬
+	 * @author 臾몄씤李�
 	 * @param repairDTO
 	 *            -
 	 * @return ArrayList<repairDTO>
-	 * @remark 해당 양식장과 검색조건에 맞는 조치기록 검색
-	 * 		   사용처 - waterTank/repairRec.jsp
+	 * @remark �빐�떦 �뼇�떇�옣怨� 寃��깋議곌굔�뿉 留욌뒗 議곗튂湲곕줉 寃��깋
+	 * 		   �궗�슜泥� - waterTank/repairRec.jsp
 	 **************************************/
 	
 	public ArrayList<repairDTO> repairRec(repairDTO indto) {
@@ -169,22 +169,22 @@ public class repairDAO {
 				+ "from repair r, (select distinct groupcode, fishname from fish) f "
 				+ "where r.fishId = f.groupcode and farmId = " + indto.getFarmId() + " ";
 		
-		// sensorDate가 공백이 아니면 sql문에 붙임
+		// sensorDate媛� 怨듬갚�씠 �븘�땲硫� sql臾몄뿉 遺숈엫
 		if( !indto.getSensorDate().equals("") ) {
 			sql += " and " + indto.getSensorDate();
 		}
 		
-		// regDate가 공백이 아니면 sql문에 붙임
+		// regDate媛� 怨듬갚�씠 �븘�땲硫� sql臾몄뿉 遺숈엫
 		if( !indto.getLastUptdate().equals("") ) {
 			sql += " and " + indto.getLastUptdate();
 		}
 		
-		// 수조번호(tankID) 공백, null이 아닐시 추가
+		// �닔議곕쾲�샇(tankID) 怨듬갚, null�씠 �븘�땺�떆 異붽�
 		if( !indto.getTankId().equals("")) {
 			sql += " and tankID like '%" + indto.getTankId() + "%'";
 		}
 		
-		// fishID 공백, null이 아닐시 추가
+		// fishID 怨듬갚, null�씠 �븘�땺�떆 異붽�
 		if( !indto.getRemark().equals("")) {
 			sql += " and fishName like '%" + indto.getRemark() + "%'";
 		}
@@ -207,7 +207,7 @@ public class repairDAO {
 				outdto.setRecSeq(rs.getInt("recseq"));
 				outdto.setTankId(rs.getString("tankid"));
 				outdto.setRemark(rs.getString("fishname"));
-				if(rs.getString("state").equals("G"))				// 상태 값 결정
+				if(rs.getString("state").equals("G"))				// �긽�깭 媛� 寃곗젙
 				{
 					outdto.setState("정상");	
 				}
@@ -244,12 +244,12 @@ public class repairDAO {
 	
 	/**************************************
 	 * @name getRepairContents
-	 * @author 문인찬
+	 * @author 臾몄씤李�
 	 * @param repairSeq, recSeq
 	 *            -
 	 * @return String
-	 * @remark 긴 repairContents 내용이 있을 수도 있어서 repairSeq, recSeq를 받아서 따로 뽑아옴
-	 * 		   사용처 - waterTank/wtCautionUpdateForm.jsp
+	 * @remark 湲� repairContents �궡�슜�씠 �엳�쓣 �닔�룄 �엳�뼱�꽌 repairSeq, recSeq瑜� 諛쏆븘�꽌 �뵲濡� 戮묒븘�샂
+	 * 		   �궗�슜泥� - waterTank/wtCautionUpdateForm.jsp
 	 **************************************/
 	
 	public String getRepairContents(int repairSeq, int recSeq) throws NullPointerException, SQLException {
@@ -287,12 +287,12 @@ public class repairDAO {
 	
 	/**************************************
 	 * @name repairContentsUpdate
-	 * @author 문인찬
+	 * @author 臾몄씤李�
 	 * @param repairSeq, recSeq, contents
 	 *            -
 	 * @return 
-	 * @remark repairContents 업데이트 용도
-	 * 		   사용처 - waterTank/wtCautionUpdatePrc.jsp
+	 * @remark repairContents �뾽�뜲�씠�듃 �슜�룄
+	 * 		   �궗�슜泥� - waterTank/wtCautionUpdatePrc.jsp
 	 **************************************/
 	
 	public void repairContentsUpdate(int repairSeq, int recSeq, String contents) throws NullPointerException, SQLException {

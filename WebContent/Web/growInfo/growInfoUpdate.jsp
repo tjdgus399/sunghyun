@@ -21,7 +21,7 @@
 <!DOCTYPE html>
 <%
 		// 인코딩/한글패치
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("UTF-8");
 		
 		// 변수
 		// 양식장/양식정보DTO
@@ -31,10 +31,15 @@
 		// 양식장ID / 양식장이름 / 그룹코드 / list에서 사용했던 keyWord(2개)
 		int FarmID = Integer.parseInt(request.getParameter("FarmID"));
 		String farmName = request.getParameter("farmName");
+		
 		int groupcode = Integer.parseInt(request.getParameter("groupcode"));
 		String farmNamekeyWord = StrUtil.nullToBlank(request.getParameter("farmNamekeyWord"));
 		String fishNamekeyWord = StrUtil.nullToBlank(request.getParameter("fishNamekeyWord"));
-		int selectFarmId = Integer.parseInt(request.getParameter("selectedFarmId"));
+		
+		System.out.println(FarmID);
+		System.out.println(groupcode);
+		System.out.println(farmNamekeyWord+":"+fishNamekeyWord);
+		/* int selectFarmId = Integer.parseInt(request.getParameter("selectedFarmId"));  */
 %>
 <html>
 	<head>
@@ -195,7 +200,7 @@
 				<input type="hidden" name="farmNameAddress" value="<%=farmName%>"/>
 				<input type="hidden" name="farmNamekeyWord" value="<%=farmNamekeyWord%>"/>
 				<input type="hidden" name="fishNamekeyWord" value="<%=fishNamekeyWord%>"/>
-				<input type="hidden" name="selectedFarmId" value="<%=selectFarmId %>"/>
+				
 			</form>
 		</section>
 		<!-- --------------------------- END SECTION ---------------------------------->

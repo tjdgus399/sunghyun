@@ -1,7 +1,7 @@
 <%
    /*==============================================================================
 	 ■ SYSTEM				: SAF(Smart Aqua Farm) - 스마트 모니터링 시스템
-	 ■ SOURCE FILE NAME		: Mobile/waterTank/stateRec.jsp
+	 ■ SOURCE FILE NAME		: Web/waterTank/stateRec.jsp
 	 ■ DESCRIPTION			: 수조 조치기록 표시
 	 ■ COMPANY				: 
 	 ■ PROGRAMMER			: 문인찬
@@ -15,7 +15,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../include/SessionState.inc" %>
+<!-- <%@ include file="../include/include/session.inc" %> -->
 <jsp:useBean id="strUtil" class="com.main.StringUtil"/>
 <jsp:useBean id="repairDAO" class="com.repair.repairDAO"/>
 <jsp:useBean id="farmDAO" class="com.farm.farmDAO"/>
@@ -23,12 +23,19 @@
 <html>
 	<head>
 <%
+		int FarmID = 0;
 		// 한글 패치
 		request.setCharacterEncoding("UTF-8");
-
+		
 		// 변수 받아오기
 		// 양식장ID / 양식장 명 받아오기
-		int FarmID = Integer.parseInt(request.getParameter("FarmID"));
+		try {
+			FarmID = Integer.parseInt(request.getParameter("FarmID"));
+			System.out.println(FarmID);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		String farmName = farmDAO.farmidToName(FarmID);
 		
 		// 검색어 관련 변수(수조이름 / 상태기준정보명 / 상태 / 측정일시)
@@ -71,23 +78,11 @@
 		indto.setSensorDate(sensorDate);
 		indto.setLastUptdate(lastUptDate);
 %>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="EUC-KR">
 		<title>스마트 모니터링 시스템</title>
-		
-		<!--  Jquery Mobile CSS Include  -->
-		<link rel="stylesheet" href="../common/style.css" />
-		<link rel="stylesheet" href="../common/jquery/jquery.mobile-1.0.1.css" />
-		
-		<!--  Jquery Mobile JS Include  -->
-		<script src="../common/jquery/demos/jquery.js"></script>
-		<script src="../common/jquery/jquery.mobile-1.0.1.js"></script>
-		
-		<script type="text/javascript" src="../common/main.js"></script>
-		
+		<link rel="stylesheet" href="../include/css/common.css">
+		<script type="text/javascript" src="../include/js/common.js"></script>
 		<script>
-			var FarmID;
-			FarmID = <%= FarmID %>;
-		
 			// select 박스 선택
 			// 화면 초기화시 (화면로딩후 시작후 바로)
 			function goInit(){
@@ -98,129 +93,88 @@
 			
 			window.onload = function()
 			{
+				printClock();
 				goInit();
 			}
 		</script>
 	</head>
 	<body>
 		<!-- --------------------------- START HEADER ---------------------------------->
-		<header data-role="header">
-			<%@ include file="../include/headerTitle.inc" %>
+		<header>
+			<%@ include file="../include/header.inc"%>
 		</header>
 		<!-- --------------------------- END  HEADER ----------------------------------->
 		
 		<!-- --------------------------- START SECTION --------------------------------->
-		<section data-role="section" class="waterTank-Mobile">
-			<%@include file="../include/headerMenu.inc" %>
-			<div id="titleName">조치기록보기(<%=farmName %>)</div>
-			
+		<section>
+			<span id="titleName">조치기록보기(<%=farmName %>)</span>
 			<hr>
 			<br>
-			<form name="farmSelectedForm">
-				<div data-role="fieldcontain">
-					<div class="ui-grid-a">
-						<div class="ui-block-a">
-							<label for="tankId">수조명</label>
-							<input type="text" name="tankId" id="tankId" value="<%=tankId %>" maxlength="10"/>
-						</div>
-						<div class="ui-block-b">
-							<label for="fishName">어종</label>
-							<input type="text" name="fishName" id="fishName" value="<%=fishName %>" maxlength="10"/>
-						</div>
-					</div>
-					<select name="state">
-						<option value="">상태선택</option>
-						<option value="G">안전</option>
-						<option value="Y">경고</option>
-						<option value="R">위험</option>
-					</select>
-					<br>
-					측정일시 입력(시작날짜, 끝날짜)
-					<br><br>
-					<div class="ui-grid-a">
-						<div class="ui-block-a">
-							<input type="date" name="sensorSDate" id="sensorSDate" value="<%=sensorSDate%>">
-						</div>
-						<div class="ui-block-b">
-							<input type="date" name="sensorEDate" value="<%=sensorEDate%>">
-						</div>
-					</div>
-					<br>
-					조치일시 입력(시작날짜, 끝날짜)
-					<br><br>
-					<div class="ui-grid-a">
-						<div class="ui-block-a">
-							<input type="date" name="lastUptSDate" value="<%=lastUptSDate%>">
-						</div>
-						<div class="ui-block-b">
-							<input type="date" name="lastUptEDate" value="<%=lastUptEDate%>">
-						</div>
-					</div>
-					<div data-role="fieldcontain">
-						<div class="ui-grid-a">
-							<div class="ui-block-a">
-								<input type="button" value="조회" onclick="wtSearch()"/>
-							</div>
-							<div class="ui-block-b">
-								<input type="button" value="초기화" onclick="wtSearchReset()" />
-							</div>
-						</div>
-					</div>
-					<!-- stateRec.jsp, repairRec.jsp 이동 위한 저장용도 -->
-					<input type="hidden" name="selectedFarmId" value="<%=FarmID %>"/>
-				</div>
+			<form method="POST" name="farmSelectedForm">
+				수조이름 : <input type="text" name="tankId" value="<%=tankId %>" maxlength="10"/>
+				어종 : <input type="text" name="fishName" value="<%=fishName %>" />
+				<select name="state">
+					<option value="">상태(이상명)</option>
+					<option value="R">위험</option>
+					<option value="Y">경고</option>
+					<option value="G">안전</option>
+				</select>
+				<br>측정일시 : <input type="date" name="sensorSDate" value="<%=sensorSDate%>" > ~ <input type="date" name="sensorEDate" value="<%=sensorEDate%>">
+				&nbsp;&nbsp;처리일시 : <input type="date" name="lastUptSDate" value="<%=lastUptSDate %>" > ~ <input type="date" name="lastUptEDate" value="<%=lastUptEDate%>" >
+				<input type="button" value="조회" onclick="wtSearch()">
+				<input type="button" value="초기화" onclick="wtSearchReset()">
+				<!-- stateRec.jsp, repairRec.jsp 이동 위한 저장용도 -->
+				<input type="hidden" name="FarmID" value="<%=FarmID %>"/>
 			</form>
 			<br>
 <%
 			repairADto = repairDAO.repairRec(indto);
-									
+%>
+			<table id="repairTable">
+				<tr id="repairTableTop">
+					<td class="contents">수조이름</td>
+					<td class="contents">어종</td>
+					<td>측정일시</td>
+					<td class="contents">상태</td>
+					<td>처리일시</td>
+					<td class="contents">처리자</td>
+					<td class="repairContents">조치내용</td>
+				</tr>
+<%
 				if(repairADto.isEmpty())
 				{
-%>					<table class="repairTable">
-						<tr>
-							<td colspan="7"> 측정된 Data가 없습니다.</td>
-						</tr>
-					</table>
+%>
+					<tr>
+						<td colspan="7"> 측정된 Data가 없습니다.</td>
+					</tr>
 <%
-				} else {
+				}
+				else
+				{
 					for(int i=0; i<repairADto.size(); i++)
 					{
 						repairDTO dto = repairADto.get(i);
-%>						
-						<table id="repairTable" class="listMouseEvent-pointer" onclick="wtCautionRepairContentsUpdate('<%=farmName%>','<%=dto.getTankId()%>',<%=dto.getRepairSeq()%>,<%=dto.getRecSeq()%>)">
-							<tr>
-								<td>수조이름</td><td><%=dto.getTankId() %></td>
-							</tr>
-							<tr>
-								<td>어종</td><td><%=dto.getRemark() %></td>
-							</tr>
-							<tr>
-								<td>측정일시</td><td><%=dto.getSensorDate() %></td>
-							</tr>
-							<tr>
-								<td>상태</td><td><%=dto.getState() %><br>&nbsp;<%=dto.getYrCode() %></td>
-							</tr>
-							<tr>
-								<td>처리일시</td><td><%=dto.getLastUptdate() %></td>
-							</tr>
-							<tr>
-								<td>처리자</td><td><%=dto.getLastUptId() %></td>
-							</tr>
-							<tr>
-								<td class="repairContents">조치내용</td><td><%=dto.getRepairContents() %></td>
-							</tr>
-						</table>
-						<br>
-<%
-					}
-				}
 %>
+						<tr class="recTableMain listMouseEvent-pointer" onclick="wtCautionRepairContentsUpdate('<%=farmName%>','<%=dto.getTankId()%>',<%=dto.getRepairSeq()%>,<%=dto.getRecSeq()%>)">
+							<td><%=dto.getTankId() %></td>
+							<td><%=dto.getRemark() %></td>
+							<td><%=dto.getSensorDate() %></td>
+							<td><%=dto.getState() %><br>&nbsp;<%=dto.getYrCode() %></td>
+							<td><%=dto.getLastUptdate() %></td>
+							<td><%=dto.getLastUptId() %></td>
+							<td><%=dto.getRepairContents() %></td>
+						</tr>
+<%
+					} // for i 끝
+				}	// if 종료
+%>
+			</table>
 		</section>
 		<!-- --------------------------- END SECTION ---------------------------------->
 		
 		<!-- --------------------------- START FOOTER ---------------------------------->
-		<footer data-role="footer" data-position="fixed">
-			<%@ include file="../include/footer.inc"%>
+		<footer>
+			<%@ include file="../include/include/footer.inc"%>
 		</footer>
 		<!-- --------------------------- END FOOTER ------------------------------------>
 	</body>

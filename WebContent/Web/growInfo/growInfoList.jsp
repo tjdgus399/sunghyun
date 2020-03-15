@@ -52,9 +52,11 @@
 			// 읽기
 			function goRead(farmId, groupcode, remark)
 			{
+		
 				var frm = document.farmSelectedForm;
+				console.log(farmId);
 				
-				frm.farmId.value = farmId;
+				frm.FarmID.value = farmId;
 				frm.groupcode.value = groupcode;
 				frm.farmNameAddress.value = remark;
 				

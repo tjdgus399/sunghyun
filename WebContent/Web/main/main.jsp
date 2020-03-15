@@ -217,7 +217,7 @@
 				FarmName = farm_list.get(0).getFarmName();
 		%>
 		<div id="choiceFarm">
-			<select><option value="_" selected><%=FarmName%></option></select>
+			<select><option value='<%=userFarmID %>' selected><%=FarmName%></option></select>
 		</div>
 		<div id="Main_Section_Contents_User"></div>
 		<%

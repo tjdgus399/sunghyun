@@ -28,7 +28,8 @@
 
 		// 변수 받아오기
 		// 양식장ID / 양식장 명 받아오기
-		int farmId = Integer.parseInt(request.getParameter("farmID"));
+		int farmId = Integer.parseInt(request.getParameter("FarmID"));
+		
 		String farmName = farmDAO.farmidToName(farmId);
 		
 		// 검색어 관련 변수(수조이름 / 상태기준정보명 / 상태 / 측정일시)

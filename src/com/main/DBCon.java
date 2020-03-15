@@ -12,7 +12,7 @@ public class DBCon {
 		try{
 			Context inictx = new InitialContext();
 			Context envctx = (Context) inictx.lookup("java:comp/env");
-			DataSource ds = (DataSource)envctx.lookup("jdbc/host1");
+			DataSource ds = (DataSource)envctx.lookup("jdbc/saf");
 			Connection con = ds.getConnection();
 			
 			con.setAutoCommit(true);

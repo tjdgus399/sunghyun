@@ -15,11 +15,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.farm.*"%>
-<%@ include file="../include/SessionState.inc" %>
+<%@ include file="../include/include/session.inc" %>
 
 <%
 	//앞에서 조치 버튼을 누를때의 양식장 아이디와 수조 번호, 기록코드를 받아온다
-	int farmID= Integer.parseInt(request.getParameter("FarmId"));
+	int farmID= Integer.parseInt(request.getParameter("FarmID"));
 	String tankID = request.getParameter("tankid");
 	String recSeq = request.getParameter("RecSeq");
 	//여기까지 받는 부분
