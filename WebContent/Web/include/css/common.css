@@ -1,0 +1,608 @@
+@charset "UTF-8";
+
+/* ************************  Start of basic CSS  *************************   */
+/*  
+    * basic Tag Doc
+	* 작성일  : 2019.08.19
+	* 작성자  : 윤건주
+	* 작성내용 : margin - 0, padding - 0(간격 0으로 조절)
+	* 수정일  : 
+	* 수정내용 : 
+*/
+
+* 
+{
+	/* 마진  / 패딩  */
+	margin : 0 auto;
+	padding : 0;
+}
+/* ************************  End of basic CSS   *************************   */
+
+/* ************************  Start of Body CSS  *************************   */
+/*  
+	* Body Tag Doc
+	* 작성일  : 2019.08.19
+	* 작성자  : 윤건주
+	* 작성내용 : 배경색 - #efefef 쥐색 / 전체적인 크기 조절
+	* 수정일  : 
+	* 수정내용 : 
+*/
+
+body 
+{
+	/* 배경색 */
+	background:#efefef;
+	/* 전체적인 크기 */
+	width:1500px;
+}
+/* ************************  End of body CSS   *************************   */
+
+/* ************************  Start of Header CSS  *************************   */
+/*  
+	* Header Tag Doc
+	* 작성일  : 2019.08.19
+	* 작성자  : 윤건주
+	* 작성내용 : 
+	* 수정일  : 
+	* 수정내용  : 
+*/
+
+header
+{
+	/* 배경색 */
+	width:1496px;
+	height:150px;
+	text-align-last:center;
+	vertical-align:middle;
+	background-color:#ffffff;
+	border-width:2px;
+	border-color:gray;
+	border-style:solid;
+}
+
+/* 헤더 상단부 */
+#top_header
+{
+	display : flex;
+	height : 70px;
+	padding-top : 10px;
+}
+
+/* 헤더 상단부 중앙 */
+#headerTopCenter
+{
+	font-size:45px;
+	text-align:center;
+}
+
+/* 헤더 상단부 우측 / 하단 버튼 */
+.headerButton
+{
+	position:relative;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0.5em;
+    padding:0.6em 28px .6em 28px;
+    position: relative;
+    text-align: center;
+	font: 1em/100% Arial, Helvetica, sans-serif;
+    text-decoration: none;
+	vertical-align: baseline;
+	outline: none;	
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+}
+
+.white {
+	-moz-box-shadow: 0px 1px 4px /*{global-box-shadow-size}*/ 			rgba(0,0,0,.3) /*{global-box-shadow-color}*/;
+	-webkit-box-shadow: 0px 1px 4px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.3) /*{global-box-shadow-color}*/;
+	box-shadow: 0px 1px 4px /*{global-box-shadow-size}*/ 				rgba(0,0,0,.3) /*{global-box-shadow-color}*/;	
+	border: 1px solid 		#ccc /*{d-bup-border}*/;
+	background: 			#fff /*{d-bup-background-color}*/;
+	font-weight: bold;
+	color: 					#444 /*{d-bup-color}*/;
+	text-shadow: 0 /*{d-bup-shadow-x}*/ 1px /*{d-bup-shadow-y}*/ 1px /*{d-bup-shadow-radius}*/ #fff /*{d-bup-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #fff), to( #fff /*{d-bup-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(#fff /*{d-bup-background-start}*/, #fff /*{d-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(#fff /*{d-bup-background-start}*/, #fff /*{d-bup-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient(#fff /*{d-bup-background-start}*/, #fff /*{d-bup-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient(#fff /*{d-bup-background-start}*/, #fff /*{d-bup-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient(#fff /*{d-bup-background-start}*/, #fff /*{d-bup-background-end}*/);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
+}
+
+.white:hover {
+	border: 1px solid 		#aaa /*{d-bhover-border}*/;
+	background: 			#eeeeee /*{d-bhover-background-color}*/;
+	font-weight: bold;
+	color: 					#222 /*{d-bhover-color}*/;
+	cursor: pointer;
+	text-shadow: 0 /*{d-bhover-shadow-x}*/ 1px /*{d-bhover-shadow-y}*/ 1px /*{d-bhover-shadow-radius}*/ 	#fff /*{d-bhover-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #fdfdfd), to( #eee /*{d-bhover-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(#fdfdfd /*{d-bhover-background-start}*/, #eee /*{d-bhover-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(#fdfdfd /*{d-bhover-background-start}*/, #eee /*{d-bhover-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient(#fdfdfd /*{d-bhover-background-start}*/, #eee /*{d-bhover-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient(#fdfdfd /*{d-bhover-background-start}*/, #eee /*{d-bhover-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient(#fdfdfd /*{d-bhover-background-start}*/, #eee /*{d-bhover-background-end}*/);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fdfdfd', endColorstr='#eeeeee',GradientType=0 ); /* IE6-8 */
+}
+
+.white:active {
+	border: 1px solid 		#aaaaaa /*{d-bdown-border}*/;
+	background: 			#ffffff /*{d-bdown-background-color}*/;
+	font-weight: bold;
+	color: 					#111 /*{d-bdown-color}*/;
+	text-shadow: 0 /*{d-bdown-shadow-x}*/ 1px /*{d-bdown-shadow-y}*/ 1px /*{d-bdown-shadow-radius}*/ 	#ffffff /*{d-bdown-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #eee /*{d-bdown-background-start}*/), to( #fff /*{d-bdown-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(#eee /*{d-bdown-background-start}*/, #fff /*{d-bdown-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(#eee /*{d-bdown-background-start}*/, #fff /*{d-bdown-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient(#eee /*{d-bdown-background-start}*/, #fff /*{d-bdown-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient(#eee /*{d-bdown-background-start}*/, #fff /*{d-bdown-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient(#eee /*{d-bdown-background-start}*/, #fff /*{d-bdown-background-end}*/);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
+}
+
+#bottom_header
+{
+	padding-top:10px;
+	height:56px;
+}
+
+.bottom
+{
+	width:12.1%;
+	height:100%;
+	margin:0;
+	border-right:0px;
+	border-left:0px;
+}
+
+/* ************************  End of Header CSS   *************************   */
+
+/* ************************  Start of Section CSS  *************************   */
+/*  
+	* Section Tag Doc
+	* 작성일  : 2019.08.19
+	* 작성자  : 윤건주
+	* 작성내용 : 본문 위치 / 크기조절 / 배경색:#ffffff(흰색)
+	* 수정일  : 
+	* 수정내용  : 
+*/
+
+section
+{
+	/* 너비 */
+	width:100%;
+	/* 높이 */
+	height:900px;
+	/* 중간배치 */
+	text-align-last:center;
+	vertical-align:middle;
+	/* 배경색 */
+	background-color:#ffffff;
+}
+#titleName
+{
+	/* 글씨크기 */
+	font-size: 40px;
+}
+
+hr
+{
+	border-width: 10px;
+}
+/* ************************  End of Section CSS   *************************   */
+
+/* ************************  Start of Footer CSS  *************************   */
+/*  
+	* Footer Tag Doc
+	* 작성일  : 2019.08.19
+	* 작성자  : 윤건주
+	* 작성내용 : 하단 위치 / 너비조절 / 배경색:#ffffff(흰색) / 하단고정 / div css 조절
+	* 수정일  : 
+	* 수정내용  : 
+*/
+
+/* 푸터 */
+footer
+{
+	/* 너비 */
+	width:1496px;
+	/* 높이 */
+	height:50px;
+	/* 배경색 */
+	background-color:#ffffff;
+	/* 위치 고정 */
+	position:fixed;
+	/* 하단에서 떨어진 거리 */
+	bottom:0px;
+	/* 박스 border(테두리) */
+	border-width:2px;
+	border-color:black;
+	border-style:solid;
+}
+
+/* 푸터Div */
+.footerDiv
+{
+	/* 인라인형태로 변경 */
+	display:inline-block;
+	/* 크기조절 */
+	width:49%;
+	/* 마진조절 */
+	margin-top:10px;	
+}
+
+/* 푸터 좌측Div */
+#footerLeft
+{
+	/* 죄측정렬 */
+	text-align-last:left;
+	padding-left:10px;
+}
+
+/* 푸터 우측Div */
+#footerRight
+{
+	/* 우측정렬 */
+	text-align-last:right;
+}
+/* ************************  End of Footer CSS   *************************   */
+
+/* ************************  Start of webContent/web/index.jsp  *************************   */
+/*  
+	* Tag Doc
+	* 작성일  : 2019.08.08
+	* 작성자  : 고지안(Go)
+	* 작성내용 : index.jsp의 로그인 화면 CSS
+	* 수정일  : 
+	* 수정내용  : 
+*/
+
+/* index.jsp 파일의 로딩 애니메이션*/
+#loader {
+	margin: auto;
+	width: 400px;
+	height: 400px;
+	border: 16px solid #f3f3f3;
+	border-top: 16px solid #3498db;
+	border-radius: 120%;
+	animation: spin 38s linear infinite;
+	position: relative;
+	top: -10%;
+	margin-top:70px;
+}
+
+@keyframes spin { 100% 
+ {transform: rotate(360deg);}
+}
+
+div#index_Section_Area {
+	margin: auto;
+	position: relative;
+	top: 34%;
+	z-index: 100;
+}
+/* ************************  End of webContent/web/index.jsp  *************************   */
+
+/* ************************  Start of webContent/web/main/main.jsp CSS  *************************   */
+/*  
+	* Tag Doc
+	* 작성일  : 2019.08.19
+	* 작성자  : 고지안
+	* 작성내용 : 
+	* 수정일  : 
+	* 수정내용  : 
+*/
+
+#MainSelectedForm
+{
+	text-align-last:left;
+	padding-top:20px;
+	margin-left:40px;
+	font-size:40px;
+}
+
+#farmSelect
+{
+	font-size: 40px;
+	border:none;
+}
+/* ************************  End of webContent/web/main/main.jsp  *************************   */
+
+/* ************************  Start of webContent/web/growInfo/growInfoList.jsp CSS  *************************   */
+/*  
+	* Tag Doc
+	* 작성일  : 2019.08.23
+	* 작성자  : 윤건주
+	* 작성내용 : 양식 기준정보 목록의 CSS
+	* 수정일  : 
+	* 수정내용  : 
+*/
+#growListTable
+{
+	width:1000px;
+    border: 2px solid #444444;
+    border-collapse: collapse;
+}
+
+#growListTable td
+{
+    border: 2px solid #444444;
+    padding: 10px;
+}
+
+#btnInsert
+{
+	background-image:url('../etc/images/btn_a_regist.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 85px 40px;
+	width:85px;
+	height:40px;
+}
+
+#btnSearch
+{
+	background-image:url('../etc/images/btn_a_inquiry.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 85px 40px;
+	width:85px;
+	height:40px;
+}
+
+#searchLabel
+{
+	font-size: 25px;
+}
+
+.searchForm
+{
+	text-align-last:left;
+	line-height:20px;
+}
+
+#growListTr
+{
+	background-color: #DCDCDC;
+	height: 40px;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.selectGrowList:hover
+{
+	background-color:gold;
+}
+/* ************************  End of webContent/web/growInfo/growInfoList.jsp  *************************   */
+
+/* ************************  Start of webContent/web/growInfo/*.jsp CSS  *************************   */
+/*  
+	* Tag Doc
+	* 작성일  : 2019.08.23
+	* 작성자  : 윤건주
+	* 작성내용 : 양식 기준정보 등록의 CSS
+	* 수정일  : 
+	* 수정내용  : 
+*/
+
+#growInfoTable
+{
+	width:1350px;
+    border: 2px solid #444444;
+    border-collapse: collapse;
+}
+
+#growInfoTable td
+{
+    border: 2px solid #444444;
+    padding: 10px;
+    width:60px;
+}
+
+#growInfoTable input
+{
+	width:55px;
+	height: 80%;
+	border: 0px;
+	font-size: 18pt;
+}
+
+
+#btnList
+{
+	background-image:url('../etc/images/btn_a_list.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 105px 40px;
+	width:105px;
+	height:40px;
+}
+
+#btnCancel
+{
+	background-image:url('../etc/images/btn_cancel.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 105px 40px;
+	width:105px;
+	height:40px;
+}
+
+#btnDel
+{
+	background-image:url('../etc/images/btn_a_delet.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 85px 40px;
+	width:85px;
+	height:40px;
+}
+
+#btnUpt
+{
+	background-image:url('../etc/images/btn_a_correct.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 85px 40px;
+	width:85px;
+	height:40px;
+}
+
+.growInfoTableTop
+{
+	width:25%;
+	background-color: #DCDCDC;
+}
+
+#btnFarmSearch
+{
+	background-image:url('../etc/images/btn_a_inquiry.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 70px 30px;
+	width:70px;
+	height:30px;
+}
+
+#growInfoTable .mark0, #growInfoTable .mark4
+{
+	background-color:red;
+
+    font-size:18pt;
+}
+
+#growInfoTable .mark1, #growInfoTable .mark3
+{
+	background-color:yellow;
+    font-size:18pt;
+}
+
+#growInfoTable .mark2
+{
+	background-color:green;
+    font-size:18pt;
+}
+
+#growInfoTable .valueFont
+{
+    font-size:24pt;
+}
+
+#growInfoTable .subTitle
+{
+	background-color:#DCDCDC;
+	width:84px;
+}
+
+#growInfoTable #growInfoLabel
+{
+	width:80%;
+	height: 40px;
+}
+/* ************************  End of webContent/web/growInfo/*.jsp  *************************   */
+
+/* ************************  Start of webContent/web/waterTank/stateRec.jsp CSS  *************************   */
+/*  
+	* Tag Doc
+	* 작성일  : 2019.08.23
+	* 작성자  : 문인찬
+	* 작성내용 : 양식 기준정보 목록의 CSS
+	* 수정일  : 
+	* 수정내용  : 
+*/
+#recTable
+{
+	width:1350px;
+    border: 2px solid #444444;
+    border-collapse: collapse;
+}
+
+#recTable input,select{
+	vertical-align:middle;
+}
+
+#recTable td
+{
+    border: 2px solid #444444;
+    padding: 10px;
+}
+
+#recTableTop
+{
+	background-color: #DCDCDC;
+	font-weight: bold;
+}
+
+#recTableTop .sensorValue
+{
+	width:90px;
+}
+
+/* ************************  End of webContent/web/waterTank/stateRec.jsp  *************************   */
+
+/* ************************  Start of webContent/web/waterTank/repairRec.jsp CSS  *************************   */
+/*  
+	* Tag Doc
+	* 작성일  : 2019.08.23
+	* 작성자  : 문인찬
+	* 작성내용 : 양식 기준정보 목록의 CSS
+	* 수정일  : 
+	* 수정내용  : 
+*/
+#repairTable
+{
+	width:1350px;
+    border: 2px solid #444444;
+    border-collapse: collapse;
+}
+
+#repairTable input,select{
+	vertical-align:middle;
+}
+
+#repairTable td
+{
+    border: 2px solid #444444;
+    padding: 10px;
+}
+
+#repairTableTop
+{
+	background-color: #DCDCDC;
+	font-weight: bold;
+}
+
+#repairTableTop .repairContents{
+	width:250px;
+}
+
+#repairTableTop .contents{
+	width:120px;
+}
+
+/* ************************  End of webContent/web/waterTank/repairRec.jsp  *************************   */
+
+/* ************************  Start of webContent/web/waterTank/repairRec.jsp CSS  *************************   */
+/*  
+	* Tag Doc
+	* 작성일  : 2019.08.23
+	* 작성자  : 문인찬
+	* 작성내용 : 리스트 위에 마우스 올릴시 이벤트
+	* 수정일  : 
+	* 수정내용  : 
+*/
+
+/* 리스트 마우스 이벤트, pointer(손모양) */
+.listMouseEvent-pointer:hover{
+   background-color:gold;
+   cursor : pointer;
+}
+
+/* 리스트 마우스 이벤트, default(기본) */
+.listMouseEvent-default:hover{
+   background-color:gold;
+}
+/* ************************  End of webContent/web/waterTank/repairRec.jsp CSS  *************************   */

@@ -1,0 +1,289 @@
+@charset "EUC-KR";
+
+* {
+	margin: 0 auto;
+	padding :0;
+}
+/* WebContent/Mobile/main	/* Layout */
+/********************************************************************* START LINE*/
+/*  
+    @ Doc
+	@ Create       : 2019.08.08
+	@ Author       : Mun In Chan
+	@ Last Update  : 2019.08.23
+    @ breif        : WebContent/watertank Layout
+*/
+
+/* index.jsp */
+.LoginHeader {
+	font-size: 25px;
+	text-align: center;
+	align: center;
+	height: 15%;
+}
+
+.loginText {
+	text-align: center;
+	align: center;
+}
+
+.LoginSection {
+	height: 50%;
+}
+
+.LoginFooter {
+	height: 25%;
+}
+
+.LoginSubmit {
+	font-size: 8px;
+	float: right;
+}
+
+/*	main.jsp */
+div.MainHeader {
+	text-align:center;
+	align: center;
+	color: white;
+	background-color : black;
+
+}
+
+/* Mobile main.jsp Layout */
+div.HeaderMenu {
+	background : white;
+	display:flex;
+}
+div.HeaderMenu > a{
+	padding: 0;
+	margin: 0;
+	align : center;
+	text-align: center;
+	margin : 0;
+	border : 1px solid;
+	flex:1;
+ 	text-decoration: none;
+ 	background-color : grey;
+}
+
+
+
+/********************************************************************* END LINE*/
+/********************************************************************* END LINE*/
+
+/* WebContent/farm/* Layout */
+
+/********************************************************************* START LINE*/
+
+/*  
+
+    @ Doc
+
+   @ Create       : 2019.08.23
+
+   @ Author       : Hwang Sun Ju
+
+   @ Last Update  : 2019.09.01
+
+    @ breif        : WebContent/farm Layout
+
+*/
+
+
+.rwd-table {
+	margin: 1em 0;
+	min-width: 300px;
+	border: 1px solid #444444;
+	border-collapse: collapse;
+	width : 90%;
+	text-align : center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.rwd-table tr {
+
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.rwd-table th {
+  display: none;
+  border: 1px solid #444444;
+  background-color : #DCDCDC;
+}
+.rwd-table td {
+	display: block;
+	text-align : left;
+}
+.rwd-table td:first-child {
+  padding-top: .5em;
+}
+.rwd-table td:last-child {
+  padding-bottom: .5em;
+}
+.rwd-table td:before {
+  content: attr(data-th) " : ";
+  font-weight: bold;
+  width: 6.5em;
+  display: inline-block;
+}
+@media (min-width: 480px) {
+  .rwd-table td:before {
+    display: none;
+  }
+}
+@media (min-width: 480px) {
+  .rwd-table th,
+  .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+}
+
+body {
+  padding: 0 2em;
+  font-family: sans-serif;
+  color: #444;
+  background: #eee;
+}
+
+.rwd-table {
+  color: #000;
+  border-radius: .4em;
+}
+.rwd-table th,
+.rwd-table td {
+  margin: .5em 1em;
+}
+@media (min-width: 480px) {
+  .rwd-table th,
+  .rwd-table td {
+    padding: 1em !important;
+  }
+}
+.rwd-table th,
+.rwd-table td:before {
+  color: #000;
+}
+
+.fixed-table-body {
+  overflow-x: auto;
+}
+
+/* ************************  Start of webContent/mobile/waterTank/stateRec.jsp CSS  *************************   */
+/*  
+	* Tag Doc
+	* 작성일  : 2019.08.23
+	* 작성자  : 문인찬
+	* 작성내용 : 양식 기준정보 목록의 CSS
+	* 수정일  : 
+	* 수정내용  : 
+*/
+#recTable
+{
+	width:80%;
+    border: 2px solid #444444;
+    border-collapse: collapse;
+    text-align:center;
+}
+
+#recTable td
+{
+    border: 2px solid #444444;
+    padding: 10px;
+}
+
+/* recTable에 있는 tr의 첫번째 td(제목)에 회색 넣어주기 위함 */
+#recTable tr td:first-child
+{
+	background-color: #DCDCDC;
+	font-weight: bold;
+}
+
+/* ************************  End of webContent/mobile/waterTank/stateRec.jsp  *************************   */
+
+/* ************************  Start of webContent/mobile/waterTank/repairRec.jsp CSS  *************************   */
+/*  
+	* Tag Doc
+	* 작성일  : 2019.08.23
+	* 작성자  : 문인찬
+	* 작성내용 : 양식 기준정보 목록의 CSS
+	* 수정일  : 
+	* 수정내용  : 
+*/
+#repairTable
+{
+	width:80%;
+    border: 2px solid #444444;
+    border-collapse: collapse;
+    text-align:center;
+}
+
+#repairTable td
+{
+    border: 2px solid #444444;
+    padding: 10px;
+}
+
+/* recTable에 있는 tr의 첫번째 td(제목)에 회색 넣어주기 위함 */
+#repairTable tr td:first-child
+{
+	background-color: #DCDCDC;
+	font-weight: bold;
+}
+
+#repairTable .repairContents{
+	width : 35%;
+}
+
+/* ************************  Start of webContent/Mobile/waterTank/*.jsp  *************************   */
+.waterTank-Mobile input, select{
+	width: 80% !important;
+	text-align:center;
+}
+/* ************************  End of webContent/Mobile/waterTank/*.jsp  *************************   */
+
+
+/* ************************  Start of webContent/Mobile/waterTank/wtCautionUpdateForm.jsp  *************************   */
+.wtCautionUpdateForm textarea{
+	resize: vertical;
+	width:100%;
+	height:100px;
+}
+
+.wtCautionUpdateForm .record{
+	display:flex;
+}
+
+.wtCautionUpdateForm .record div{
+	border:1px solid black;
+	flex:1;
+}
+
+.wtCautionUpdateForm input[type="button"]{
+	width : 40%;
+	height: 50px;
+	margin: 0 4.3%;
+}
+/* ************************  End of webContent/Mobile/waterTank/wtCautionUpdateForm.jsp  *************************   */
+
+/* ************************  Start of webContent/mobile/waterTank/repairRec.jsp CSS  *************************   */
+/*  
+	* Tag Doc
+	* 작성일  : 2019.08.23
+	* 작성자  : 문인찬
+	* 작성내용 : 리스트 위에 마우스 올릴시 이벤트
+	* 수정일  : 
+	* 수정내용  : 
+*/
+
+/* 리스트 마우스 이벤트, pointer(손모양) */
+.listMouseEvent-pointer:hover{
+   background-color:gold;
+   cursor : pointer;
+}
+
+/* 리스트 마우스 이벤트, default(기본) */
+.listMouseEvent-default:hover{
+   background-color:gold;
+}
+/* ************************  End of webContent/mobile/waterTank/repairRec.jsp CSS  *************************   */

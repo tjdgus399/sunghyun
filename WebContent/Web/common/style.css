@@ -1,0 +1,607 @@
+@charset "EUC-KR";
+
+/* ALL TAG CENTER SORT*/
+* {
+	margin: 0 auto;
+}
+/********************************************************************* Assemble  */
+/*  WebContent/main/index.jsp */
+/********************************************************************* START LINE*/
+/*  
+    @ Doc
+	@ Create       : 2019.08.08
+	@ Author       : Yun Gun Ju
+	@ Last Update  : 2019.08.19
+    @ breif        : WebContent/main/index.jsp Layout
+*/
+
+#h2Header {
+	text-align: center;
+	width: 1500px;
+	height: 130px;
+	background-color: #ffffff;
+	border-width: 2px;
+	border-color: blue;
+	border-style: solid;
+}
+
+section#index_Section {
+	width: 100%;
+	height: 700%;
+	text-align-last: center;
+	vertical-align: middle;
+}
+
+/* index.jsp 파일의 로딩 애니메이션*/
+#loader {
+	margin: auto;
+	width: 400px;
+	height: 400px;
+	border: 16px solid #f3f3f3;
+	border-top: 16px solid #3498db;
+	border-radius: 120%;
+	animation: spin 38s linear infinite;
+	position: relative;
+	top: -10%;
+}
+
+@keyframes spin { 100% 
+ {transform: rotate(360deg);}
+}
+
+/* index.jsp의 div 태그 */
+div#index_Section_Area {
+	margin: auto;
+	position: relative;
+	top: 34%;
+	z-index: 100;
+}
+footer#indexFooter {
+	width: 1500px;
+	height: 130px;
+	background-color: #ffffff;
+	bottom: 0px;
+	border-width: 2px;
+	border-color: blue;
+	border-style: solid;
+}
+
+
+/* 푸터Div */
+.footerDiv {
+	display: inline-block;
+	width: 49%;
+	margin-top: 22.5px;
+}
+
+/* 푸터 좌측Div */
+#footerLeft {
+	text-align-last: left;
+	margin-left: 10px;
+}
+
+/* 푸터 우측Div */
+#footerRight {
+	text-align-last: right;
+}
+
+/********************************************************************* END LINE*/
+/* WebContent/main/Main.jsp Layout */
+/********************************************************************* START LINE*/
+/*  
+    @ Doc
+	@ Create       : 2019.08.08
+	@ Author       : GoJian
+	@ Last Update  : 2019.08.19
+    @ breif        : WebContent/main/main.jsp Layout
+*/
+
+#top_header {
+	display: flex;
+	width: 80%;
+	height: 150px;
+	position: relative;
+	top: -1px;
+}
+
+#top_header #left {
+	flex: 1;
+	padding: 15px 0 10px;
+	position: relative;
+	top: -1%;
+	left: -0.5%;
+}
+
+#top_header #left .refreshButton {
+	width: 50px;
+	height: 50px;
+	margin-top: 1px;
+	float: left;
+}
+
+#top_header #center {
+	flex: 1;
+	font-size: 60px;
+	text-align: center;
+	position: relative;
+	top: 20%;
+	
+}
+
+#top_header .center a:link {
+	color: black;
+	text-decoration: none;
+}
+
+#top_header .center a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+#top_header .center a:hover {
+	color: black;
+	text-decoration: none;
+}
+
+#top_header #right {
+	flex: 1;
+	line-height: 40px;
+	text-align: right;
+	position: relative;
+	top: -1%;
+	right: -0.5%;
+}
+
+#top_header #right>form {
+	position: relative;
+	top: -35%;
+}
+
+#bottom_header {
+	width: 80%;
+	height: 50px;
+	display: flex;
+	position: relative;
+	top: 28%;
+}
+
+#bottom_header button {
+	border: 1px solid white;
+	border-radius: 0px;
+	flex: 1;
+	margin: 0px;
+}
+
+section {
+	width : 80%;
+	height: 1200px;
+	text-align: center;
+}
+
+section.mainSection {
+	text-align: left;
+}
+
+section>div#choiceFarm {
+	width: 80%;
+	height: 80px;
+	position: relative;
+	top: 3%;
+	left :-2%;
+	font-size: 19px;
+	text-align: bottom;
+}
+
+section>div#choiceFarm>select#selectAdmin {
+	height: 30px;
+}
+section>div#choiceFarm>select#selectFarm {
+	height: 30px;
+}
+
+section>div#choiceFarm>button#wtTankSelect {
+	float: right;
+	position: relative;
+	top: -10%;
+}
+
+section>div#Main_Section_Contents_Admin {
+	width: 100%;
+	height: 900px;
+	position: relative;
+	top: 5%;
+}
+
+section>div#Main_Section_Contents_Admin>div {
+	margin :1px;
+	width: 18.7%;
+	height: 280px;
+	font-size: 18px;
+	font-stretch: ultra-expanded;
+	letter-spacing: -1px;
+	float: left;
+	display: table-cell;
+	border: 1px solid;
+	line-height: 1.6em;
+	position:relative;
+	left:2%;
+}
+
+section>div#Main_Section_Contents_Admin>div>hr {
+	border: 1pt groove #3f51b5;
+}
+
+section>div#Main_Section_Contents_User {
+	width: 70%;
+	height: 900px;
+	position: relative;
+	top: 10%;
+}
+
+section>div#Main_Section_Contents_User>div {
+	margin: auto;
+	width: 23%;
+	height: 275px;
+	font-size: 15px;
+	font-stretch: ultra-expanded;
+	letter-spacing: -1px;
+	float: left;
+	display: table-cell;
+	padding: 10px;
+	border: 1px solid;
+	line-height: 1.6em;
+}
+
+/********************************************************************* END LINE*/
+/* WebContent/waterTank/* Layout */
+/********************************************************************* START LINE*/
+/*  
+    @ Doc
+	@ Create       : 2019.08.08
+	@ Author       : Mun In Chan
+	@ Last Update  : 2019.08.23
+    @ breif        : WebContent/watertank Layout
+*/
+/* 테이블 전체 크기 */
+.wtTable {
+	border: none;
+	width: 1000px;
+}
+
+/* 조건 검색폼 */
+.wtSearchForm{
+	text-align:left;
+	line-height:40px;
+}
+
+.wtTable .row-Title {
+	display: flex;
+}
+
+.wtTable .row {
+	display: flex;
+	background : white;
+}
+
+/* 테이블 제목 */
+.wtTable .row-Title div {
+	border: 1px solid black;
+	background: #DCDCDC;
+	flex: 1;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 38px;
+}
+
+/* 테이블 데이터 표시 */
+.wtTable .row div {
+	border: 1px solid black;
+	width: 100px;
+	flex: 1;
+	font-size: 14px;
+	word-break: break-all;
+	line-height:45px;
+}
+
+/* wtRec용 테이블 날짜 표시 */
+.wtTable .row div.wtRecDate {
+	flex:1.7;
+	/* line-height:initial; */ 
+	font-size:16px;
+}
+
+/* wtUpdateForm용 테이블 날짜 표시 */
+.wtTable .row div.wtUpdateFormDate {
+	flex:1.3;
+	/* line-height:initial;  */
+	font-size:16px;
+}
+
+/* wtUpdateForm용 테이블 컨텐츠 표시 */
+.wtTable .row div.wtUpdateFormContents {
+	flex:1.5;
+	line-height:initial;
+	font-size:14px;
+}
+
+/* wtUpdateForm용 처리자 표시 */
+.wtTable .row div.wtRepairID{
+	flex:0.6;
+}
+
+/* 
+실질적인 데이터 표현 부분 
+나중에 scrollbar 없애려고 일단 만들어 뒀습니다.
+*/
+.tableMain{
+}
+
+/* input 박스, select 박스 정렬 용도 */
+.wtTable input, select{
+	vertical-align:middle;
+}
+
+/* 수조번호 input 박스 크기 조절 */
+.wtTable input[name='tankID']{
+	width:70px;
+}
+
+/* 어종 input 박스 크기 조절 */
+.wtTable input[name='fishName']{
+	width:70px;
+}
+/*====== wtRec.jsp 및 wtUpdateForm.jsp css 끝======*/
+
+/*====== wtCautionUpdateForm.jsp css 시작 ======*/
+.wtCautionUpdateForm{
+}
+
+.wtCautionUpdateForm textarea{
+	resize: vertical;
+	width:350px;
+	height:100px;
+}
+
+.wtCautionUpdateForm .record{
+	display:flex;
+}
+
+.wtCautionUpdateForm .record div{
+	border:1px solid black;
+	flex:1;
+}
+/********************************************************************* END LINE*/
+/* WebContent/User/* Layout */
+/********************************************************************* START LINE*/
+/*  
+    @ Doc
+	@ Create       : 2019.08.08
+	@ Author       : Kim Seong Hyun
+	@ Last Update  : 2019.08.23
+    @ breif        : WebContent/User Layout
+*/
+
+input.cancel {
+	background : url("../common/images/btn_cancel.gif");
+    width: 52px;
+    height: 25px;
+}
+
+input.save{
+	background : url("../common/images/btn_a_save.gif");
+	width:52px;
+	height:25px;
+}
+
+input.del{
+	background : url("../common/images/btn_a_delet.gif");
+	width:52px;
+	height:25px;
+}
+input.search{
+	background : url("../common/images/btn_search2.gif");
+	width:52px;
+	height:25px;
+}
+input.duplicate{
+	background : url("../common/images/btn_duplicate.gif");
+	width:72px;
+	height:25px;
+}
+input.del {
+	background : url("../common/images/btn_a_delet.gif");
+    width: 52px;
+    height: 25px;
+}
+input.cor {
+	background : url("../common/images/btn_a_correct.gif");
+    width: 52px;
+    height: 25px;
+}
+
+input.list {
+	background : url("../common/images/btn_a_list.gif");
+    width: 80px;
+    height: 25px;
+}
+input.regist {
+	background : url("../common/images/btn_a_regist.gif");
+    width: 52px;
+    height: 25px;
+}
+input.duplicate{
+	background : url("../common/images/btn_duplicate.gif");
+	width:72px;
+	height:25px;
+}
+input.menu{
+	background : url("../common/images/main_top_menu5.png");
+	width:135px;
+	height:32px;
+}
+.userInfo{
+   border-spacing: 0px;
+   border-collapse: separate; 
+   width: 80%;
+   border: 1px solid #444444;
+   border-collapse: collapse;
+}
+.userInfo th{
+   width: 4%;
+   padding: 10px;
+   border: 1px solid #444444;
+   background-color: #DCDCDC;
+   border-collapse: collapse;
+}
+.userInfo td{
+   width: 4%;
+   border: 1px solid #444444;
+   border-collapse: collapse;
+}
+
+/*  
+    @ Doc
+	@ Create       : 2019.08.23
+	@ Author       : Kim Su A
+	@ Last Update  : 2019.08.23
+    @ breif        : WebContent/userManagement.jsp Layout
+*/
+
+#insertButton {
+	float:right;
+}
+
+.userlist{
+	border-spacing: 0px;
+	border-collapse: separate; 
+	width: 80%;
+	border: 1px solid #444444;
+	border-collapse: collapse;
+}
+.userlist th{
+	width: 4%;
+	padding: 10px;
+	border: 1px solid #444444;
+	background-color: #DCDCDC;
+	border-collapse: collapse;
+}
+.userlist td{
+   width: 4%;
+   border: 1px solid #444444;
+   border-collapse: collapse;
+}
+.userlistbutton{
+	border-spacing: 0px;
+	border-collapse: separate; 
+	width: 80%;
+	border: 1px solid white;
+	border-collapse: collapse;
+}
+.userlistbutton th{
+	width: 3%;
+	border: 1px solid white;
+	border-collapse: collapse;
+}
+
+/********************************************************************* END LINE*/
+/* WebContent/farm/* Layout */
+/********************************************************************* START LINE*/
+/*  
+    @ Doc
+	@ Create       : 2019.08.23
+	@ Author       : Hwang Sun Ju
+	@ Last Update  : 2019.08.23
+    @ breif        : WebContent/farm Layout
+*/
+.tablefarmuser_upt {
+    border: 1px solid #444444;
+    border-collapse: collapse;
+    width :80%;
+    text-align :center;
+}
+   
+.tablefarmuser_upt th{
+   border: 1px solid #444444;
+   background-color : #DCDCDC;
+}
+
+.tablefarmuser_upt td{
+   border: 1px solid #444444;
+}
+
+/*  
+    @ Doc
+	@ Create       : 2019.08.23
+	@ Author       : Jang Hae lee
+	@ Last Update  : 2019.08.23
+    @ breif        : WebContent/farmwtUpdateForm.jsp Layout
+*/
+
+.farmwtUpdate{
+   border-spacing: 0px;
+   border-collapse: separate; 
+   width: 80%;
+   border: 1px solid #444444;
+   border-collapse: collapse;
+}
+.farmwtUpdate th{
+   width: 4%;
+   padding: 10px;
+   border: 1px solid #444444;
+   background-color: #DCDCDC;
+   border-collapse: collapse;
+}
+.farmwtUpdate td{
+   width: 4%;
+   border: 1px solid #444444;
+   border-collapse: collapse;
+}
+
+/*  
+    @ Doc
+	@ Create       : 2019.08.23
+	@ Author       : Kim Su A
+	@ Last Update  : 2019.08.23
+    @ breif        : WebContent/farmwtInsertForm.jsp Layout
+*/
+
+.farmwtInsert{
+	border-spacing: 0px;
+	border-collapse: separate; 
+	width: 80%;
+	border: 1px solid #444444;
+	border-collapse: collapse;
+}
+.farmwtInsert th{
+	width: 4%;
+	padding: 10px;
+	border: 1px solid #444444;
+	background-color: #DCDCDC;
+}
+.farmwtInsert td{
+   width: 4%;
+   border: 1px solid #444444;
+}
+
+/********************************************************************* END LINE*/
+/* 리스트 위에 마우스 오버시 이벤트 */
+/********************************************************************* START LINE*/
+/*  
+    @ Doc
+	@ Create       : 2019.08.23
+	@ Author       : Mun In Chan
+	@ Last Update  : 2019.08.23
+    @ breif        : WebContent/ Layout
+*/
+
+/* 리스트 마우스 이벤트, pointer(손모양) */
+.listMouseEvent-pointer:hover{
+   background-color:gold;
+   cursor : pointer;
+}
+
+/* 리스트 마우스 이벤트, default(기본) */
+.listMouseEvent-default:hover{
+   background-color:gold;
+}
+/********************************************************************* END LINE*/
